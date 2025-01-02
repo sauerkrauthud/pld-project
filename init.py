@@ -1,5 +1,7 @@
 def startFeature():
     stdLevel = str(input("Please enter your student level here (G for Graduate, U for Undergraduate, B for Both): "))
+    while stdLevel != "U" or stdLevel != "G" or stdLevel != "B":
+        stdLevel = str(input("Please enter your student level here (G for Graduate, U for Undergraduate, B for Both): "))
     if stdLevel == "U":
         stdDegree = "N/A - Undergraduate."
         stdID = int(input("Please enter your student ID number here: (ie: 2020006000): "))
