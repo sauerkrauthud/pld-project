@@ -1,6 +1,8 @@
 import csv
 import datetime
-
+import os
+import time
+'''
 def startFeature():
     stdLevel = str(input("Please enter your student level here (G for Graduate, U for Undergraduate, B for Both): "))
     if stdLevel == "U":
@@ -9,7 +11,7 @@ def startFeature():
     if stdLevel == "G" or stdLevel == "B":
         stdDegree = str(input("Are you taking a Masters, a Doctorate, or Both? (M for Masters, D for Doctorate and B0 for Both): "))
         stdID = int(input("Please enter your student ID number here: (ie: 2020006000): "))
-
+'''
 #start feature
 def previousRequestsFeature(request_history, dates, times):
     # Ensure the input lists are not empty
@@ -17,11 +19,36 @@ def previousRequestsFeature(request_history, dates, times):
         print("No request history available.")
         return
 
+    # Show the request history on the screen
+    print("\nPrevious Transcript Requests")
     print("Request\tDate\tTime")
     print("======================================")
-
     for i in range(len(request_history)):
         print(f"{request_history[i]}\t{dates[i]}\t{times[i]}")
+
+    # Ask if the user wants to save the request history to a file
+    save_to_file = input("Would you like to save this request history to a file? (Y/N): ").strip().lower()
+    if save_to_file == 'y':
+        student_id = input("Please enter your student ID: ").strip()
+        file_name = f"{student_id}PreviousRequests.txt"
+
+        # Prepare the content for the file
+        content = "Request\tDate\tTime\n"
+        content += "======================================\n"
+        for i in range(len(request_history)):
+            content += f"{request_history[i]}\t{dates[i]}\t{times[i]}\n"
+
+        # Write the content to the file
+        with open(file_name, "w") as file:
+            file.write(content)
+
+        print(f"Request history has been saved to {file_name}.")
+    else:
+        print("Request history was not saved to a file.")
+
+    # Pause for a few seconds
+    input("Press Enter to return to the menu.")
+
 
 
 def MajorTranscript():
@@ -53,6 +80,8 @@ def menuFeature():
 
     # Format time in 12-hour format with AM/PM
     formatted_time = now.strftime("%I:%M %p")
+    
+
 
     confirm = True
     while confirm:
@@ -64,7 +93,8 @@ def menuFeature():
 
         if 1 <= option <= 8:
             if option == 1:
-                detailsFeature()
+                detailsFeature('201009000')
+                # number is just an example, needs to be a variable in menufeature
             elif option == 2:
                 print("kys")  # Replace this with actual functionality
             elif option == 3:
@@ -73,7 +103,7 @@ def menuFeature():
                 dates.append(str(now.date()))
                 times.append(formatted_time)  
             elif option == 6:
-                previousRequestsFeature(request_history, dates, times)  # Display previous requests
+                previousRequestsFeature(request_history, dates, times) 
             elif option == 8:
                 terminateFeature(request_history)
                 confirm = False
@@ -83,13 +113,40 @@ def menuFeature():
 
 
 
-def detailsFeature():
-    print("Name: John Doe")
-    print("Student ID: 12345678")
-    print("Levels: Undergraduate")
-    print("Number of terms: 4")
-    print("College(s): Engineering")
-    print("Department(s): Computer Science")
+def detailsFeature(student_id):
+    # Open and read the CSV file
+    with open('studentDetails.csv', mode='r') as file:
+        reader = csv.DictReader(file)
+        
+        # Iterate through each row in the CSV
+        for row in reader:
+            # Check if the student ID matches the given ID
+            if row['stdID'] == student_id:
+                # Prepare the details to be printed and written
+                student_details = (
+                    f"Name: {row['Name']}\n"
+                    f"Student ID: {row['stdID']}\n"
+                    f"Levels: {row['Level']}\n"
+                    f"Number of terms: {row['Terms']}\n"
+                    f"College(s): {row['College']}\n"
+                    f"Department(s): {row['Department']}\n"
+                )
+                
+                # Print to console
+                print(student_details)
+                
+                # Create the file name based on student ID
+                file_name = f"{row['stdID']}details.txt"
+                
+                # Write the details to the text file
+                with open(file_name, "w") as txt_file:
+                    txt_file.write(student_details)
+                
+                print(f"Student details have been saved to {file_name}.")
+                return  # Exit the function once the student is found
+        
+        # If student ID is not found
+        print("Student ID not found.")
 
 
 def terminateFeature(request_history):
