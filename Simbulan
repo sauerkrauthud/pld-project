@@ -1,0 +1,100 @@
+import csv
+import datetime
+
+def startFeature():
+    stdLevel = str(input("Please enter your student level here (G for Graduate, U for Undergraduate, B for Both): "))
+    if stdLevel == "U":
+        stdDegree = "N/A - Undergraduate."
+        stdID = int(input("Please enter your student ID number here: (ie: 2020006000): "))
+    if stdLevel == "G" or stdLevel == "B":
+        stdDegree = str(input("Are you taking a Masters, a Doctorate, or Both? (M for Masters, D for Doctorate and B0 for Both): "))
+        stdID = int(input("Please enter your student ID number here: (ie: 2020006000): "))
+
+#start feature
+def previousRequestsFeature(request_history, dates, times):
+    # Ensure the input lists are not empty
+    if not request_history or not dates or not times:
+        print("No request history available.")
+        return
+
+    print("Request\tDate\tTime")
+    print("======================================")
+
+    for i in range(len(request_history)):
+        print(f"{request_history[i]}\t{dates[i]}\t{times[i]}")
+
+
+def MajorTranscript():
+    # Example implementation of generating a Major Transcript
+    print("Generating Major Transcript...")
+    # Add your logic here for Major Transcript generation
+
+
+def menuFeature():
+    # Lists to hold the request data
+    print("Student Transcript Generation System")
+    print("======================================")
+    print("1. Student Details")
+    print("2. Statistics")
+    print("3. Transcript based on Major Courses")
+    print("4. Transcript based on Minor Courses")
+    print("5. Full Transcript")
+    print("6. Previous Transcript Requests")
+    print("7. Select Another Student")
+    print("8. Terminate the System")
+    print("======================================")
+    
+    request_history = []
+    dates = []
+    times = []
+
+    # Get current time for timestamp
+    now = datetime.datetime.now()
+
+    # Format time in 12-hour format with AM/PM
+    formatted_time = now.strftime("%I:%M %p")
+
+    confirm = True
+    while confirm:
+        try:
+            option = int(input("Enter Your Feature: "))
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 8.")
+            continue
+
+        if 1 <= option <= 8:
+            if option == 1:
+                detailsFeature()
+            elif option == 2:
+                print("kys")  # Replace this with actual functionality
+            elif option == 3:
+                MajorTranscript()
+                request_history.append("Major")
+                dates.append(str(now.date()))
+                times.append(formatted_time)  
+            elif option == 6:
+                previousRequestsFeature(request_history, dates, times)  # Display previous requests
+            elif option == 8:
+                terminateFeature(request_history)
+                confirm = False
+        else:
+            print("Invalid option. Please try again.")
+            continue
+
+
+
+def detailsFeature():
+    print("Name: John Doe")
+    print("Student ID: 12345678")
+    print("Levels: Undergraduate")
+    print("Number of terms: 4")
+    print("College(s): Engineering")
+    print("Department(s): Computer Science")
+
+
+def terminateFeature(request_history):
+    print("======================================")
+    print(f"Number of requests: {len(request_history)}")
+
+
+menuFeature()
