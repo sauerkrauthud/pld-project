@@ -1,0 +1,12 @@
+Level,Degree,Term,courseName,courseID,courseType,creditHours,Grade
+P,PhD1,1,CourseH1,CH1,Major,5,94
+P,PhD1,1,CourseH6,CH6,Minor,5,95
+P,PhD1,1,CourseH2,CH2,Major,5,96
+P,PhD1,1,CourseH11,CH11,Major,5,97
+P,PhD1,1,CourseH16,CH16,Minor,5,98
+P,PhD1,1,CourseH21,CH21,Major,5,99
+P,PhD1,1,CourseH26,CH26,Minor,5,100
+P,PhD1,1,CourseH31,CH31,Major,5,91
+P,PhD1,1,CourseH36,CH36,Minor,5,92
+P,PhD1,1,CourseH41,CH41,Major,5,93
+,,,,,,,

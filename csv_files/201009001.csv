@@ -1,0 +1,12 @@
+Level,Degree,Term,courseName,courseID,courseType,creditHours,Grade
+G,MS2,2,CourseG1,CG1,Major,4,58
+G,MS2,2,CourseG6,CG6,Minor,4,59
+G,MS2,2,CourseG2,CG2,Major,4,60
+G,MS2,2,CourseG11,CG11,Major,4,61
+G,MS2,2,CourseG16,CG16,Minor,4,62
+G,MS2,2,CourseG21,CG21,Major,4,63
+G,MS2,2,CourseG26,CG26,Minor,4,64
+G,MS2,2,CourseG31,CG31,Major,4,65
+G,MS2,2,CourseG36,CG36,Minor,4,66
+G,MS2,2,CourseG41,CG41,Major,4,67
+,,,,,,,
