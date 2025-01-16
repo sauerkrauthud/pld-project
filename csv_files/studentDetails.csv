@@ -1,18 +1,17 @@
 Serial,stdID,Name,College,Department,Level,Degree,Major,Minor,Terms
-1,201006000,Ibrahim Ahmed Nemer,College1,C1Department1,U,BS1,C1D1MajorBS1,C1D1MinorBS1,8
-2,201006000,Ibrahim Ahmed Nemer,College1,C1Department1,G,M1,C1D1MajorM1,C1D1MinorM1,4
-3,201006000,Ibrahim Ahmed Nemer,College1,C1Department1,G,D1,C1D1MajorD1,C1D1MinorD1,6
-4,201007000,Ali Mohammad Hadi,College2,C2Department1,U,BS1,C2D2MajorBS1,C2D2MinorBS1,7
-5,201008000,Ahmed Ali Mohammad,College3,C3Department1,G,D1,C3D1MajorD1,C3D1MinorD1,4
-6,201009000,Mohammad Ibrahim Ali,College1,C1Department1,U,BS1,C1D1MajorBS1,C1D1MinorBS1,3
-7,201009000,Mohammad Ibrahim Ali,College4,C4Department1,G,M1,C4D2MajorM1,C4D2MinorM1,8
-8,201009000,Mohammad Ibrahim Ali,College4,C4Department1,G,M2,C4D2MajorM2,C4D2MinorM2,3
-9,201009001,Ayman Tarek Saad,College2,C2Department3,G,M1,C2D3MajorM1,C2D3MinorM1,6
-10,201009002,Hassan Mahmoud Salem,College3,C3Department4,U,BS2,C3D4MajorBS2,C3D4MinorBS2,5
-11,201010000,Sara Khaled Hassan,College6,C6Department1,U,BS1,C6D1MajorBS1,C6D1MinorBS1,5
-12,201010001,Omar Nabil Fawzy,College7,C7Department2,G,M1,C7D2MajorM1,C7D2MinorM1,6
-13,201010002,Fatima Ahmed Saleh,College8,C8Department1,G,D1,C8D1MajorD1,C8D1MinorD1,8
-14,201011000,Kamal Abdallah Mohammad,College5,C5Department1,G,D1,C5D1MajorD1,C5D1MinorD1,7
-15,201011000,Kamal Abdallah Mohammad,College4,C5Department1,U,BS1,C5D1MajorD1,C5D1MinorD1,7
-16,201011002,Laila Tamer Mahmoud,College4,C4Department2,U,BS2,C4D2MajorBS2,C4D2MinorBS2,4
-
+1,201006000,Ibrahim Ahmed Nemer,College1,C1Department1,U,BS1,C1D1MajorBS1,C1D1MinorBS1,2
+2,201006000,Ibrahim Ahmed Nemer,College1,C1Department1,G,M1,C1D1MajorM1,C1D1MinorM1,2
+3,201006000,Ibrahim Ahmed Nemer,College1,C1Department1,G,D1,C1D1MajorD1,C1D1MinorD1,1
+4,201007000,Ali Mohammad Hadi,College2,C2Department1,U,BS1,C2D2MajorBS1,C2D2MinorBS1,2
+5,201008000,Ahmed Ali Mohammad,College3,C3Department1,G,D1,C3D1MajorD1,C3D1MinorD1,2
+6,201009000,Mohammad Ibrahim Ali,College1,C1Department1,U,BS1,C1D1MajorBS1,C1D1MinorBS1,1
+7,201009000,Mohammad Ibrahim Ali,College4,C4Department1,G,M1,C4D2MajorM1,C4D2MinorM1,1
+8,201009000,Mohammad Ibrahim Ali,College4,C4Department1,G,M2,C4D2MajorM2,C4D2MinorM2,2
+9,201009001,Ayman Tarek Saad,College2,C2Department3,G,M1,C2D3MajorM1,C2D3MinorM1,1
+10,201009002,Hassan Mahmoud Salem,College3,C3Department4,U,BS2,C3D4MajorBS2,C3D4MinorBS2,1
+11,201010000,Sara Khaled Hassan,College6,C6Department1,U,BS1,C6D1MajorBS1,C6D1MinorBS1,2
+12,201010001,Omar Nabil Fawzy,College7,C7Department2,G,M1,C7D2MajorM1,C7D2MinorM1,2
+13,201010002,Fatima Ahmed Saleh,College8,C8Department1,G,D1,C8D1MajorD1,C8D1MinorD1,1
+14,201011000,Kamal Abdallah Mohammad,College5,C5Department1,G,D1,C5D1MajorD1,C5D1MinorD1,2
+15,201011000,Kamal Abdallah Mohammad,College4,C5Department1,U,BS1,C5D1MajorD1,C5D1MinorD1,1
+16,201011002,Laila Tamer Mahmoud,College4,C4Department2,U,BS2,C4D2MajorBS2,C4D2MinorBS2,1
