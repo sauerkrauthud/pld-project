@@ -64,7 +64,8 @@ def detailsFeature(student_id):
 
 #previous feature
 #note need maglagay ng lists sa menufeature para gumana 
-def previousRequestsFeature(request_history, dates, times):
+
+def previousRequestsFeature(request_history, dates, times, stdID):
     # Ensure the input lists are not empty
     if not request_history or not dates or not times:
         print("No request history available.")
@@ -80,21 +81,27 @@ def previousRequestsFeature(request_history, dates, times):
 
     # Ask if the user wants to save the request history to a file
     save_to_file = input("Would you like to save this request history to a file? (Y/N): ").strip().lower()
+    
     if save_to_file == 'y':
-        student_id = input("Please enter your student ID: ").strip()
-        file_name = f"std{student_id}PreviousRequests.txt"
+        file_name = f"std{stdID}PreviousRequests.txt"
+
+        # Check if the file already exists
+        file_exists = os.path.exists(file_name)
 
         # Prepare the content for the file
-        content = "Request\tDate\tTime\n"
-        content += "======================================\n"
+        content = ""
+        if not file_exists:
+            content += "Request\tDate\tTime\n"
+            content += "======================================\n"
+
         for i in range(len(request_history)):
             content += f"{request_history[i]}\t{dates[i]}\t{times[i]}\n"
 
-        # Write the content to the file
-        with open(file_name, "w") as file:
+        # Append the content to the file
+        with open(file_name, "a") as file:
             file.write(content)
 
-        print(f"Request history has been saved to {file_name}.")
+        print(f"Request history has been {'updated' if file_exists else 'saved'} to {file_name}.")
     else:
         print("Request history was not saved to a file.")
 
@@ -104,7 +111,6 @@ def previousRequestsFeature(request_history, dates, times):
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-
 def MajorTranscript():
     # Example implementation of generating a Major Transcript
     print("Generating Major Transcript...")
@@ -112,19 +118,13 @@ def MajorTranscript():
 
 
 def menuFeature():
-    # Lists to hold the request data
-    print("Student Transcript Generation System")
-    print("======================================")
-    print("1. Student Details")
-    print("2. Statistics")
-    print("3. Transcript based on Major Courses")
-    print("4. Transcript based on Minor Courses")
-    print("5. Full Transcript")
-    print("6. Previous Transcript Requests")
-    print("7. Select Another Student")
-    print("8. Terminate the System")
-    print("======================================")
     
+    
+    #std id example
+    stdID = '201009000'
+    #
+
+    # Lists to hold the request data
     request_history = []
     dates = []
     times = []
@@ -139,6 +139,17 @@ def menuFeature():
 
     confirm = True
     while confirm:
+        print("Student Transcript Generation System")
+        print("======================================")
+        print("1. Student Details")
+        print("2. Statistics")
+        print("3. Transcript based on Major Courses")
+        print("4. Transcript based on Minor Courses")
+        print("5. Full Transcript")
+        print("6. Previous Transcript Requests")
+        print("7. Select Another Student")
+        print("8. Terminate the System")
+        print("======================================")
         try:
             option = int(input("Enter Your Feature: "))
         except ValueError:
@@ -147,7 +158,7 @@ def menuFeature():
 
         if 1 <= option <= 8:
             if option == 1:
-                detailsFeature('201009000')
+                detailsFeature(stdID)
                 # number is just an example, needs to be a variable in menufeature
             elif option == 2:
                 print("kys")  # Replace this with actual functionality
@@ -157,7 +168,7 @@ def menuFeature():
                 dates.append(str(now.date()))
                 times.append(formatted_time)  
             elif option == 6:
-                previousRequestsFeature(request_history, dates, times) 
+                previousRequestsFeature(request_history, dates, times, stdID) 
             elif option == 8:
                 terminateFeature(request_history)
                 confirm = False
@@ -167,22 +178,6 @@ def menuFeature():
 
 
 
-def newStudentFeature():
-
-#clear termninal screen
-    if os.name == 'nt': #for windows
-        os.system('cls')
-    else:
-        os.system('clear') #for linux and mac daming arte
-
-    #notify the user
-    print("Preparing for a new student...")
-    time.sleep(2)
-
-    #redirect to the main menu or start feature
-    print("Redirecting to the main menu...")
-    time.sleep(1)
-    startFeature()
 
 
 def terminateFeature(request_history):
