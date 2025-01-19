@@ -61,7 +61,6 @@ def detailsFeature(student_id):
         print("Student ID not found.")
         time.sleep(2) 
 
-
 #previous feature
 #note need maglagay ng lists sa menufeature para gumana 
 
