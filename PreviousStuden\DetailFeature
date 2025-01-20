@@ -14,7 +14,7 @@ def startFeature():
 '''
 
 #Details Feature
-#
+#required string ung id oke
 def detailsFeature(student_id):
     # Open and read the CSV file
     with open('studentDetails.csv', mode='r') as file:
