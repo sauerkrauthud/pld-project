@@ -14,58 +14,72 @@ def startFeature():
 '''
 
 #Details Feature
-#required string ung id oke
-def detailsFeature(student_id):
+#
+
+def detailsFeature(student_id, level):
     # Open and read the CSV file
     with open('studentDetails.csv', mode='r') as file:
         reader = csv.DictReader(file)
-        
+        levels = set()
+        colleges = set()
+        departments = set()
+        student_name = None
+
         # Iterate through each row in the CSV
         for row in reader:
             # Check if the student ID matches the given ID
-            if row['stdID'] == student_id:
-                # Prepare the details in the required format (one line per record)
-                student_details = (
-                    f"Name: {row['Name']}, "
-                    f"\nStudent ID: {row['stdID']}, "
-                    f"\nLevels: {row['Level']}, "
-                    f"\nNumber of terms: {row['Terms']}, "
-                    f"\nCollege(s): {row['College']}, "
-                    f"\nDepartment(s): {row['Department']}"
-                )
-                
-                # Print to console
-                print(student_details)
-                
-                # Create the file name based on student ID
-                file_name = f"std{row['stdID']}details.txt"
-                
-                # Write the details to the text file
-                with open(file_name, "w") as txt_file:
-                    txt_file.write(student_details)
-                
-                print(f"Student details have been saved to {file_name}.")
-                
-                # Wait for a few seconds before clearing the screen
-                time.sleep(3)
-                
-                # Clear the console (works differently depending on the OS)
-                os.system('cls' if os.name == 'nt' else 'clear')
-                
-                # Redirect to the menu
-                print("Redirecting to the menu...")
-                time.sleep(2)  # Pause briefly before redirecting
-                return
+            if row['stdID'] == str(student_id):
+                student_name = row['Name']  # Capture the name once
+                # Check if the level matches the criteria
+                if level == "B" or row['Level'] == level:
+                    levels.add(row['Level'])
+                    colleges.add(row['College'])
+                    departments.add(row['Department'])
         
-        # If student ID is not found
+        # If records are found
+        if student_name:
+            # Prepare the details in the required format
+            student_details = (
+                f"Name: {student_name}, "
+                f"\nStudent ID: {student_id}, "
+                f"\nLevel: {', '.join(sorted(levels))}, "
+                f"\nNumber of Terms: {len(levels)}, "
+                f"\nCollege(s): {', '.join(sorted(colleges))}, "
+                f"\nDepartment(s): {', '.join(sorted(departments))}\n"
+            )
+            
+            # Print to console
+            print(student_details)
+            
+            # Create the file name based on student ID
+            file_name = f"std{student_id}details.txt"
+            
+            # Write the details to the text file
+            with open(file_name, "w") as txt_file:
+                txt_file.write(student_details)
+            
+            print(f"Student details have been saved to {file_name}.")
+            
+            # Wait for a few seconds before clearing the screen
+            time.sleep(10)
+            
+            # Clear the console (works differently depending on the OS)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            
+            # Redirect to the menu
+            print("Redirecting to the menu...")
+            time.sleep(2)  # Pause briefly before redirecting
+            return
+        
+        # If no matching records are found
         print("Student ID not found.")
-        time.sleep(2) 
-
+        time.sleep(2)
 #previous feature
 #note need maglagay ng lists sa menufeature para gumana 
 
 def previousRequestsFeature(request_history, dates, times, stdID):
     # Ensure the input lists are not empty
+    
     if not request_history or not dates or not times:
         print("No request history available.")
         time.sleep(2)
@@ -120,7 +134,8 @@ def menuFeature():
     
     
     #std id example
-    stdID = '201009000'
+    stdID = 201009000
+    level = 'B'
     #
 
     # Lists to hold the request data
@@ -129,6 +144,7 @@ def menuFeature():
     times = []
 
     # Get current time for timestamp
+    
     now = datetime.datetime.now()
 
     # Format time in 12-hour format with AM/PM
@@ -157,7 +173,7 @@ def menuFeature():
 
         if 1 <= option <= 8:
             if option == 1:
-                detailsFeature(stdID)
+                detailsFeature(stdID, level)
                 # number is just an example, needs to be a variable in menufeature
             elif option == 2:
                 print("kys")  # Replace this with actual functionality
