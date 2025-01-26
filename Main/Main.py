@@ -4,9 +4,6 @@
 # Christianne Tedd Revidad
 # Jeru Antonio
 
-
-
-
 import csv
 import datetime
 import os
