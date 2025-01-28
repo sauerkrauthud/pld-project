@@ -912,7 +912,7 @@ def newStudentFeature():
     if os.name == 'nt': #for windows
         os.system('cls')
     else:
-        os.system('clear') #for linux and mac daming arte
+        os.system('clear') #for linux and mac
 
     #notify the user
     print("Preparing for a new student...")
