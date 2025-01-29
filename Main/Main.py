@@ -200,6 +200,7 @@ def menuFeature(degree, student_id):
                 previousRequestsFeature(request_history, dates, times, stdID) 
             elif option == 7:
                 newStudentFeature()
+                break
             elif option == 8:
                 terminateFeature(request_history)
                 confirm = False
